@@ -167,7 +167,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
     </div>
     <div class="nav-group">
       <div class="nav-label">模式</div>
-      <div class="nav-item active" onclick="switchMode(this,'kb')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg> 知识库</div>
+      <div class="nav-item active" onclick="polSetKPMode(false)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 知识库</div>
+      <div class="nav-item" onclick="polSetKPMode(true)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> 结构化卡片</div>
       <div class="nav-item" onclick="switchMode(this,'qb')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/></svg> 刷题</div>
     </div>
   </div>
@@ -223,6 +224,45 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei
 </div>
 
 <script src="politics_data.js"></script>
+<script src="../renderer/kp-card.js"></script>
+<script src="../data/politics/kp/pol-marx-basics.js"></script>
+<script src="../data/politics/kp/pol-mao-history.js"></script>
+<script>
+let polKPActive = false;
+
+function polSetKPMode(mode) {
+  polKPActive = mode;
+  document.querySelectorAll('.side-nav .nav-group:last-child .nav-item').forEach((el, i) => {
+    el.classList.toggle('active', (i === 0 && !mode) || (i === 1 && mode) || (i === 2 && !mode));
+  });
+  if (mode) {
+    const kps = [KP_POL_MARX, KP_POL_MAO];
+    let container = document.getElementById('kp-content-pol');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'kp-content-pol';
+      document.querySelector('.content').insertBefore(container, document.querySelector('.content').firstChild);
+    }
+    container.innerHTML = kps.map(kp =>
+      `<div class="slide-card kp-card" id="kp-${kp.id}">
+        <div class="kicker">${kp.chapter}</div>
+        <h2>${kp.title}</h2>
+        ${kp.tags ? `<div class="kp-tags">${kp.tags.map(t => `<span class="kp-tag">${t}</span>`).join('')}</div>` : ''}
+        ${renderKPSections(kp.sections)}
+      </div>`
+    ).join('');
+    document.getElementById('view-kb').style.display = 'none';
+    document.getElementById('view-qb').style.display = 'none';
+    container.style.display = 'block';
+  } else {
+    const container = document.getElementById('kp-content-pol');
+    if (container) container.style.display = 'none';
+    document.getElementById('view-kb').style.display = '';
+    document.getElementById('view-qb').style.display = 'none';
+    switchMode(document.querySelector('.nav-item[onclick*=\"kb\"]'), 'kb');
+  }
+}
+</script>
 <script>
 // Spotlight
 const sl=document.getElementById('spotlight');

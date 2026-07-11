@@ -376,6 +376,11 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
     <a href="#" onclick="showSection('formulas')" id="nav-formulas"><span class="icon">&#128209;</span>公式速查</a>
     <a href="#" onclick="showSection('progress')" id="nav-progress"><span class="icon">&#9745;</span>复习进度</a>
   </div>
+  <div class="sidebar-section">
+    <div class="sidebar-title">模式</div>
+    <a href="#" onclick="setKPMode(false)" class="active" id="nav-mode-slides"><span class="icon">&#127916;</span>知识点</a>
+    <a href="#" onclick="setKPMode(true)" id="nav-mode-kp"><span class="icon">&#128218;</span>结构化卡片</a>
+  </div>
 </nav>
 
 <!-- Main Content -->
@@ -1607,6 +1612,54 @@ document.addEventListener('click', function(e) {
 </script>
 <script src="exam_data.js"></script>
 <script src="exam_bank.js"></script>
+
+<script src="../renderer/kp-card.js"></script>
+<script src="../data/math/kp/ch1-limit.js"></script>
+<script src="../data/math/kp/ch2-derivative.js"></script>
+<script src="../data/math/kp/ch4-integral.js"></script>
+<script src="../data/math/kp/ch6-multivariable.js"></script>
+<script src="../data/math/kp/la-eigen.js"></script>
+
+<script>
+let kpMode = false;
+
+function setKPMode(mode) {
+  kpMode = mode;
+  document.getElementById('nav-mode-slides').classList.toggle('active', !mode);
+  document.getElementById('nav-mode-kp').classList.toggle('active', mode);
+  document.querySelectorAll('.section').forEach(s => s.style.display = '');
+  document.getElementById('sec-home').style.display = '';
+  // 简单切换：KP模式显示KP卡片，否则正常显示
+  if (mode) {
+    const kps = [KP_MATH_LIMIT, KP_MATH_DERIVATIVE, KP_MATH_INTEGRAL, KP_MATH_MULTI, KP_MATH_ODE, KP_MATH_LINALG];
+    const container = document.querySelector('.main');
+    // 隐藏所有原有section
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+    // 创建KP容器
+    let kpDiv = document.getElementById('kp-content');
+    if (!kpDiv) {
+      kpDiv = document.createElement('div');
+      kpDiv.id = 'kp-content';
+      container.insertBefore(kpDiv, container.firstChild);
+    }
+    kpDiv.innerHTML = kps.map(kp =>
+      `<div class="slide-card kp-card" id="kp-${kp.id}">
+        <div class="kicker">数学二 · ${kp.chapter}</div>
+        <h2>${kp.title}</h2>
+        ${kp.tags ? `<div class="kp-tags">${kp.tags.map(t => `<span class="kp-tag">${t}</span>`).join('')}</div>` : ''}
+        ${renderKPSections(kp.sections)}
+      </div>`
+    ).join('');
+    kpDiv.style.display = 'block';
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise();
+  } else {
+    const kpDiv = document.getElementById('kp-content');
+    if (kpDiv) kpDiv.style.display = 'none';
+    document.querySelectorAll('.section').forEach(s => s.style.display = '');
+    showSection('home');
+  }
+}
+</script>
 
 </body>
 </html>

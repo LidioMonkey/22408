@@ -150,6 +150,12 @@
 <script src="../data/408/kp/ds-intro-complexity.js"></script>
 <script src="../data/408/kp/ds-linear-sequence.js"></script>
 <script src="../data/408/kp/ds-linear-linkedlist.js"></script>
+<script src="../data/408/kp/co-cache-memory.js"></script>
+<script src="../data/408/kp/co-pipeline.js"></script>
+<script src="../data/408/kp/os-process-sync.js"></script>
+<script src="../data/408/kp/os-memory-page.js"></script>
+<script src="../data/408/kp/cn-tcpip-stack.js"></script>
+<script src="../data/408/kp/cn-network-ip.js"></script>
 <script>
 let currentSubject = 'data-structure';
 let currentMode = 'slides'; // 'slides' or 'kp'
@@ -274,13 +280,22 @@ function renderKPs() {
 }
 
 function getKPsForSubject(subject) {
-    // 收集所有该科目的知识点
-    const all = [KP_DS_INTRO_COMPLEXITY, KP_DS_LINEAR_SEQUENCE, KP_DS_LINEAR_LINKEDLIST];
+    const all = [
+      KP_DS_INTRO_COMPLEXITY, KP_DS_LINEAR_SEQUENCE, KP_DS_LINEAR_LINKEDLIST,
+      KP_CO_CACHE, KP_CO_PIPELINE,
+      KP_OS_PROCESS, KP_OS_MEMORY,
+      KP_CN_TCPIP, KP_CN_NETWORK
+    ];
     return all.filter(kp => kp.subject === subject);
 }
 
 function getKPTitle(id) {
-    const all = [KP_DS_INTRO_COMPLEXITY, KP_DS_LINEAR_SEQUENCE, KP_DS_LINEAR_LINKEDLIST];
+    const all = [
+      KP_DS_INTRO_COMPLEXITY, KP_DS_LINEAR_SEQUENCE, KP_DS_LINEAR_LINKEDLIST,
+      KP_CO_CACHE, KP_CO_PIPELINE,
+      KP_OS_PROCESS, KP_OS_MEMORY,
+      KP_CN_TCPIP, KP_CN_NETWORK
+    ];
     const found = all.find(kp => kp.id === id);
     return found ? found.title : null;
 }
