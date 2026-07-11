@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>408 知识点复习</title>
     <style>
         :root{--sidebar-width:260px;--primary:#c0392b;--primary-light:rgba(192,57,43,0.08);--bg:#f8f6f3;--text:#2c2c2c;--text-secondary:#777;--border:rgba(0,0,0,0.06)}
@@ -61,8 +61,10 @@
         @media(max-width:768px){
             .sidebar{transform:translateX(-100%);width:280px}
             .sidebar.open{transform:translateX(0)}
+            .sidebar .pill{font-size:14px;padding:8px 14px}
             .menu-toggle{display:block}
             #content{margin-left:0;padding:20px 16px;padding-top:56px}
+            .slide-card{padding:20px}
             .slide-card .grid.g2,.slide-card .grid.g3,.slide-card .cmp{grid-template-columns:1fr}
         }
     </style>

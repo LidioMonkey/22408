@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>408 真题题库</title>
     <style>
         :root{--sidebar-width:260px;--primary:#c0392b;--primary-light:rgba(192,57,43,0.08);--bg:#f8f6f3;--text:#2c2c2c;--text-secondary:#777;--border:rgba(0,0,0,0.06)}
@@ -51,8 +51,8 @@
         .q-answer-toggle{cursor:pointer;font-size:13px;color:var(--primary);font-weight:600;user-select:none}
         .q-answer-content{display:none;margin-top:8px;font-size:14px;line-height:1.8;color:#444}
         .q-answer-content.show{display:block}
-        .pagination{display:flex;justify-content:center;gap:8px;margin-top:24px;padding-bottom:24px}
-        .pagination button{padding:6px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:13px;transition:.2s}
+        .pagination{display:flex;justify-content:center;gap:6px;margin-top:24px;padding-bottom:24px;flex-wrap:wrap}
+        .pagination button{padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:13px;transition:.2s}
         .pagination button:hover{border-color:var(--primary);color:var(--primary)}
         .pagination button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
         .pagination button:disabled{opacity:0.4;cursor:not-allowed}
@@ -60,6 +60,7 @@
         @media(max-width:768px){
             .sidebar{transform:translateX(-100%);width:280px}
             .sidebar.open{transform:translateX(0)}
+            .sidebar .pill{font-size:14px;padding:8px 14px}
             .menu-toggle{display:block}
             #content{margin-left:0;padding:20px 16px;padding-top:56px}
         }

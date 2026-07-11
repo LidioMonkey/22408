@@ -183,7 +183,9 @@ body {
 .answer-content.show { display: block; }
 
 /* ========== TABLES ========== */
-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 14px 0; }
+.table-scroll table { margin: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th { background: rgba(192,57,43,0.06); color: var(--primary); padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 700; }
 td { padding: 9px 14px; border-bottom: 1px solid rgba(0,0,0,0.04); }
 tr:nth-child(even) { background: rgba(0,0,0,0.01); }
@@ -225,13 +227,46 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 @media (max-width: 768px) {
   .sidebar { transform: translateX(-100%); }
   .sidebar.open { transform: translateX(0); }
+  .sidebar a { font-size: 14px; padding: 10px 18px; }
   .main { margin-left: 0; padding: 16px; }
   .menu-toggle { display: block; }
   .header .subtitle { display: none; }
+  .header h1 { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card .stat-number { font-size: 28px; }
+  .mindmap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .mindmap-container { flex-direction: column; align-items: flex-start; }
   .mm-branches { margin-left: 20px; margin-top: -4px; }
+  .mm-node { white-space: normal; padding: 8px 12px; font-size: 12px; }
+  .mm-sub { white-space: normal; font-size: 11px; }
   .pie-container { flex-direction: column; }
+  .card { padding: 18px; }
+  .card h2 { font-size: 18px; }
+  .q-options { grid-template-columns: 1fr; }
+  table { font-size: 12px; }
+  th, td { padding: 6px 8px; }
+  .formula-box { padding: 12px; font-size: 13px; }
+  .flowchart .fc-step { padding: 10px 16px; font-size: 13px; max-width: 280px; }
+  .fc-box { min-width: 100px; padding: 8px; font-size: 12px; }
+  .kc-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .kc-card { padding: 12px; }
+  .kc-card .kc-icon { font-size: 24px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .year-btn, .type-btn { font-size: 12px; padding: 4px 10px; }
+  .exam-filters { gap: 4px; }
+  .q-card { padding: 14px; }
+  .q-text { font-size: 13px; }
+  .graph-container canvas { max-width: 100%; height: auto; }
+}
+@media (max-width: 480px) {
+  .main { padding: 12px; }
+  .card { padding: 14px; border-radius: 10px; }
+  .card h2 { font-size: 16px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .kc-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .kc-card { padding: 10px; }
+  .q-options { grid-template-columns: 1fr; }
+  .fc-row { flex-direction: column; align-items: center; }
 }
 @media print {
   .sidebar, .header, .menu-toggle, .answer-toggle { display: none !important; }
@@ -515,13 +550,13 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 
   <div class="card">
     <h2>&#128218; 推荐搭配方案</h2>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>科目</th><th>方案A（稳扎稳打）</th><th>方案B（技巧提升）</th></tr>
       <tr><td><strong>高数</strong></td><td>武忠祥 基础+强化</td><td>张宇 基础30讲+强化18讲</td></tr>
       <tr><td><strong>线代</strong></td><td>李永乐 全程</td><td>李永乐 全程</td></tr>
       <tr><td><strong>习题</strong></td><td>660/880 + 严选题</td><td>张宇1000题</td></tr>
       <tr><td><strong>冲刺</strong></td><td>李林6+4套卷</td><td>李林6+4套卷</td></tr>
-    </table>
+    </table></div>
   </div>
 </div>
 
@@ -725,7 +760,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
     <div style="text-align:center;font-size:12px;color:var(--text-secondary)">（罗尔是拉格朗日的特殊情况，拉格朗日是泰勒N=0的特殊情况）</div>
 
     <h3>辅助函数构造法（武忠祥三大方法）</h3>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>结论形式</th><th>辅助函数 $F(x)$</th><th>记忆技巧</th></tr>
       <tr><td>$f'g + fg' = 0$</td><td>$F = fg$</td><td>乘法求导</td></tr>
       <tr><td>$f' + fg' = 0$</td><td>$F = fe^g$</td><td>$e^g$ 的链式</td></tr>
@@ -733,7 +768,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
       <tr><td>$f' - kf = 0$</td><td>$F = fe^{-kx}$</td><td>符号反转</td></tr>
       <tr><td>$f'g - fg' = 0$</td><td>$F = f/g$</td><td>除法求导</td></tr>
       <tr><td>$xf' + nf = 0$</td><td>$F = x^n f$</td><td>$x^n$ 的链式</td></tr>
-    </table>
+    </table></div>
 
     <h3>导数应用：渐近线判定流程</h3>
     <div class="flowchart">
@@ -812,12 +847,12 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
     <p style="text-align:center;font-size:13px;color:var(--text-secondary)">排在前面的作 $u$（被求导），排在后面的作 $dv$（被积分）</p>
 
     <h3>三角代换速查</h3>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>被积函数特征</th><th>代换</th><th>利用的恒等式</th></tr>
       <tr><td>$\sqrt{a^2 - x^2}$</td><td>$x = a\sin t$</td><td>$1 - \sin^2 t = \cos^2 t$</td></tr>
       <tr><td>$\sqrt{a^2 + x^2}$</td><td>$x = a\tan t$</td><td>$1 + \tan^2 t = \sec^2 t$</td></tr>
       <tr><td>$\sqrt{x^2 - a^2}$</td><td>$x = a\sec t$</td><td>$\sec^2 t - 1 = \tan^2 t$</td></tr>
-    </table>
+    </table></div>
   </div>
 </div>
 
@@ -1024,7 +1059,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
   <div class="card">
     <h2>特征值与二次型 <span class="tag must">必考</span></h2>
     <h3>特征值性质速查</h3>
-    <table>
+    <div class="table-scroll"><table>
       <tr><th>矩阵变换</th><th>特征值变化</th></tr>
       <tr><td>$A$</td><td>$\lambda$</td></tr>
       <tr><td>$kA$</td><td>$k\lambda$</td></tr>
@@ -1032,7 +1067,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
       <tr><td>$A^{-1}$</td><td>$1/\lambda$</td></tr>
       <tr><td>$A^*$（伴随）</td><td>$|A|/\lambda$</td></tr>
       <tr><td>$A + kE$</td><td>$\lambda + k$</td></tr>
-    </table>
+    </table></div>
 
     <h3>正定矩阵判定（三种等价条件）</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0">
