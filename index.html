@@ -139,7 +139,6 @@
         .bento {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
             gap: 16px;
             flex: 1;
         }
@@ -148,7 +147,7 @@
         .card {
             position: relative;
             border-radius: 12px;
-            padding: 36px 36px;
+            padding: 32px 32px;
             text-decoration: none;
             color: inherit;
             overflow: hidden;
@@ -156,6 +155,8 @@
             border: 1px solid var(--notion-border);
             transition: background 0.2s, box-shadow 0.2s;
             -webkit-tap-highlight-color: transparent;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover { background: rgba(55,53,47,0.02); }
         .card:active { transform: scale(0.98); }
@@ -268,7 +269,7 @@
             line-height: 1.7;
             color: var(--notion-text-secondary);
             margin-bottom: 24px;
-            max-width: 100%;
+            flex: 1;
         }
 
         .card-stats {
@@ -299,19 +300,30 @@
 
         .card-arrow {
             position: absolute;
-            right: 32px;
-            bottom: 32px;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            right: 24px;
+            bottom: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s;
             color: var(--notion-text-secondary);
+            opacity: 0;
+            transition: opacity 0.2s;
         }
-        .card:hover .card-arrow { background: var(--notion-hover); }
-        .card-arrow svg { width: 18px; height: 18px; }
+        .card:hover .card-arrow { opacity: 1; }
+        .card-arrow svg { width: 20px; height: 20px; }
+
+        /* Card subject icon (SVG) */
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 16px;
+            flex-shrink: 0;
+        }
+        .card-icon svg { width: 100%; height: 100%; }
+        .card-math .card-icon { color: #d9730d; }
+        .card-eng .card-icon { color: #0f7b6c; }
+        .card-pol .card-icon { color: #eb5757; }
+        .card-408 .card-icon { color: #2eaadc; }
 
         /* Decorative large character */
         .deco-char {
@@ -388,30 +400,28 @@
 
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
-            .page { padding: 28px 16px; }
+            .page { padding: 24px 16px; }
             .bento { grid-template-columns: 1fr; }
-            .card { padding: 28px 24px; }
+            .card { padding: 24px 20px; }
             .card:active { transform: scale(0.98) !important; }
             .card-title { font-size: 26px; }
             .header { margin-bottom: 24px; }
             .header-title { font-size: 32px; }
-            .deco-char { font-size: 80px; }
             .countdown { gap: 12px; margin-bottom: 32px; }
             .cd-sep { padding-bottom: 20px; }
             .cd-tag { padding-bottom: 20px; font-size: 12px; }
             .cd-num { font-size: 32px; }
             .card-desc { font-size: 13px; }
             .card-stats { gap: 12px; }
-            .card-arrow { right: 20px; bottom: 20px; width: 36px; height: 36px; }
+            .card-icon { width: 32px; height: 32px; }
         }
         @media (max-width: 480px) {
-            .page { padding: 20px 12px; }
-            .card { padding: 22px 18px; }
+            .page { padding: 16px 12px; }
+            .card { padding: 20px 16px; }
             .card-title { font-size: 22px; }
             .cd-num { font-size: 24px; }
             .countdown { gap: 8px; }
             .bento { gap: 12px; }
-            .card-arrow { right: 16px; bottom: 16px; width: 32px; height: 32px; }
         }
     </style>
 </head>
@@ -441,7 +451,7 @@
             <a href="math/index.html" class="card card-math">
                 <div class="glow"></div>
                 <div class="sparkles" id="sparkles-math"></div>
-                <div class="deco-char">∫</div>
+                <div class="card-icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 32L32 8"/><path d="M14 8L20 20L26 8"/><path d="M8 14h4M28 14h4M8 20h4M28 20h4M8 26h4M28 26h4"/></svg></div>
                 <div class="card-label">数学二</div>
                 <div class="card-title">四十年真题<br>一道道过</div>
                 <div class="card-desc">1987 到 2026 的全部真题在这里。按年份挑，按题型筛，答案解析都带。知识点脑图和公式速查也塞进去了，翻起来快。</div>
@@ -450,15 +460,13 @@
                     <span class="stat">1987-2026</span>
                     <span class="stat">分页不卡</span>
                 </div>
-                <div class="card-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </div>
+                <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="12 5 19 5 19 12"/></svg></div>
             </a>
 
             <a href="english/index.html" class="card card-eng">
                 <div class="glow"></div>
                 <div class="sparkles" id="sparkles-eng"></div>
-                <div class="deco-char">Aa</div>
+                <div class="card-icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8L15 32L20 18L25 32L32 8"/><circle cx="10" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="30" cy="14" r="1.5" fill="currentColor" stroke="none"/></svg></div>
                 <div class="card-label">英语</div>
                 <div class="card-title">考研词汇</div>
                 <div class="card-desc">6500 多个词，按必考和基础分好类了。搜单词、查释义都行，看到哪自动存，下次接着来。</div>
@@ -466,15 +474,13 @@
                     <span class="stat">6551 词</span>
                     <span class="stat">59 单元</span>
                 </div>
-                <div class="card-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </div>
+                <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="12 5 19 5 19 12"/></svg></div>
             </a>
 
             <a href="408/index.html" class="card card-408">
                 <div class="glow"></div>
                 <div class="sparkles" id="sparkles-408"></div>
-                <div class="deco-char">408</div>
+                <div class="card-icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="28" height="24" rx="3"/><path d="M14 8V6a2 2 0 012-2h8a2 2 0 012 2v2"/><path d="M14 18l4 4-4 4M26 18l-4 4 4 4"/></svg></div>
                 <div class="card-label">408 计算机</div>
                 <div class="card-title">学四门<br>拿150</div>
                 <div class="card-desc">数据结构、计组、操作系统、计网四合一。知识点幻灯片复习，17年真题799道在线刷。</div>
@@ -482,15 +488,13 @@
                     <span class="stat">4 门课 114 卡片</span>
                     <span class="stat">799 道真题</span>
                 </div>
-                <div class="card-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </div>
+                <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="12 5 19 5 19 12"/></svg></div>
             </a>
 
             <a href="politics/index.html" class="card card-pol">
                 <div class="glow"></div>
                 <div class="sparkles" id="sparkles-pol"></div>
-                <div class="deco-char">政</div>
+                <div class="card-icon"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h24l-3 16H11L8 12z"/><path d="M12 28l-2 8h20l-2-8"/><path d="M16 16l2 8M20 16v8M24 16l-2 8"/></svg></div>
                 <div class="card-label">政治</div>
                 <div class="card-title">背考点<br>刷真题</div>
                 <div class="card-desc">马原、毛中特、史纲、思法、形策五大板块全覆盖。知识点整理好了，选择题分析题都有，看完直接刷。</div>
@@ -498,9 +502,7 @@
                     <span class="stat">5 大板块</span>
                     <span class="stat">知识库 + 题库</span>
                 </div>
-                <div class="card-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </div>
+                <div class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="12 5 19 5 19 12"/></svg></div>
             </a>
         </div>
 

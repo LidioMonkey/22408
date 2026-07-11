@@ -25,6 +25,7 @@
         .sidebar-section:last-child{border-bottom:none}
         .sidebar-title{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--primary);font-weight:800;padding:0 18px;margin-bottom:6px}
         .sidebar .pill{display:block;margin:4px 12px;width:calc(100% - 24px);text-align:left;padding:6px 12px;border-radius:8px;font-size:13px;cursor:pointer;border:1px solid transparent;background:transparent;color:var(--text-secondary);transition:.2s}
+        .sidebar .pill .icon-svg{width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;flex-shrink:0}
         .sidebar .pill:hover{background:rgba(192,57,43,0.04);color:var(--primary)}
         .sidebar .pill.active{background:var(--primary-light);color:var(--primary);border-color:rgba(192,57,43,0.15);font-weight:600}
         .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:99}
@@ -122,15 +123,15 @@
 <header class="header">
   <button class="menu-toggle" id="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
   <a href="index.html" class="back-link">← 返回</a>
-  <h1>📖 408 知识点复习</h1>
+  <h1><svg class="icon-svg" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1h8v12H3z"/><path d="M3 1L7 4l4-3"/></svg> 408 知识点复习</h1>
 </header>
 <div class="sidebar" id="sidebar">
     <div class="sidebar-section" id="subject-section">
         <div class="sidebar-title">科目</div>
-        <div class="pill active" data-subject="data-structure" onclick="setSubject('data-structure')">📖 数据结构 <span style="font-size:11px;color:#999">45分</span></div>
-        <div class="pill" data-subject="computer-organization" onclick="setSubject('computer-organization')">🔧 计算机组成原理 <span style="font-size:11px;color:#999">45分</span></div>
-        <div class="pill" data-subject="operating-system" onclick="setSubject('operating-system')">⚙️ 操作系统 <span style="font-size:11px;color:#999">35分</span></div>
-        <div class="pill" data-subject="computer-network" onclick="setSubject('computer-network')">🌐 计算机网络 <span style="font-size:11px;color:#999">25分</span></div>
+        <div class="pill active" data-subject="data-structure" onclick="setSubject('data-structure')"><svg class="icon-svg" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 1h8v12H3z"/><path d="M3 1L7 4l4-3"/></svg> 数据结构 <span style="font-size:11px;color:#999">45分</span></div>
+        <div class="pill" data-subject="computer-organization" onclick="setSubject('computer-organization')"><svg class="icon-svg" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 2.5l-6 6"/><circle cx="10.5" cy="2.5" r="2"/><path d="M6.5 6.5l-3 3a2 2 0 102.8 2.8l3-3"/></svg> 计算机组成原理 <span style="font-size:11px;color:#999">45分</span></div>
+        <div class="pill" data-subject="operating-system" onclick="setSubject('operating-system')"><svg class="icon-svg" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.5"/><path d="M7 1v1.5M7 11.5V13M1 7h1.5M11.5 7H13M3 3l1 1M10 10l1 1M3 11l1-1M10 4l1-1"/></svg> 操作系统 <span style="font-size:11px;color:#999">35分</span></div>
+        <div class="pill" data-subject="computer-network" onclick="setSubject('computer-network')"><svg class="icon-svg" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="6"/><ellipse cx="7" cy="7" rx="3" ry="6"/><line x1="1" y1="7" x2="13" y2="7"/></svg> 计算机网络 <span style="font-size:11px;color:#999">25分</span></div>
     </div>
     <div class="sidebar-section">
         <div class="sidebar-title">章节</div>

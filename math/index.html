@@ -66,6 +66,7 @@ body {
 .sidebar a { display: flex; align-items: center; padding: 7px 18px; color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); border-left: 3px solid transparent; gap: 8px; }
 .sidebar a:hover, .sidebar a.active { background: var(--primary-light); color: var(--primary); border-left-color: var(--primary); font-weight: 600; }
 .sidebar a .icon { width: 20px; text-align: center; flex-shrink: 0; }
+.sidebar a .icon-svg { width: 16px; height: 16px; flex-shrink: 0; display: inline-block; vertical-align: middle; }
 
 /* ========== MAIN ========== */
 .main { margin-left: var(--sidebar-width); margin-top: var(--header-height); padding: 28px; max-width: 1100px; }
@@ -339,47 +340,47 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <header class="header">
   <a href="../index.html" class="back-link">← 返回</a>
   <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
-  <h1>&#128218; 考研数学二复习宝典</h1>
+  <h1><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8v12H4z"/><path d="M4 2L8 5l4-3"/><path d="M4 6h8M4 9h6"/></svg> 考研数学二复习宝典</h1>
   <span class="subtitle">武忠祥高数基础篇 &middot; 高等数学 + 线性代数 &middot; 可视化版</span>
 </header>
 
 <!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-section">
-    <div class="sidebar-title">&#127968; 总览</div>
-    <a href="#" onclick="showSection('home')" class="active" id="nav-home"><span class="icon">&#127968;</span>首页概览</a>
-    <a href="#" onclick="showSection('exam')" id="nav-exam"><span class="icon">&#128202;</span>考试结构可视化</a>
-    <a href="#" onclick="showSection('plan')" id="nav-plan"><span class="icon">&#128197;</span>复习时间线</a>
+    <div class="sidebar-title"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l6-6 6 6"/><path d="M4 6v6h3v-3h2v3h3V6"/></svg> 总览</div>
+    <a href="#" onclick="showSection('home')" class="active" id="nav-home"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8l6-6 6 6"/><path d="M4 6v6h3v-3h2v3h3V6"/></svg></span>首页概览</a>
+    <a href="#" onclick="showSection('exam')" id="nav-exam"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="3" height="4"/><rect x="6.5" y="6" width="3" height="8"/><rect x="11" y="2" width="3" height="12"/></svg></span>考试结构可视化</a>
+    <a href="#" onclick="showSection('plan')" id="nav-plan"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="14" height="13" rx="2"/><line x1="1" y1="6" x2="15" y2="6"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg></span>复习时间线</a>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-title">&#128214; 高等数学</div>
-    <a href="#" onclick="showSection('ch1')" id="nav-ch1"><span class="icon">&#9733;</span>极限与连续</a>
-    <a href="#" onclick="showSection('ch2')" id="nav-ch2"><span class="icon">&#9733;</span>导数与微分</a>
-    <a href="#" onclick="showSection('ch3')" id="nav-ch3"><span class="icon">&#9733;</span>中值定理</a>
-    <a href="#" onclick="showSection('ch4')" id="nav-ch4"><span class="icon">&#9733;</span>不定积分</a>
-    <a href="#" onclick="showSection('ch5')" id="nav-ch5"><span class="icon">&#9733;</span>定积分与应用</a>
-    <a href="#" onclick="showSection('ch6')" id="nav-ch6"><span class="icon">&#9733;</span>多元函数微积分</a>
-    <a href="#" onclick="showSection('ch7')" id="nav-ch7"><span class="icon">&#9733;</span>微分方程</a>
+    <a href="#" onclick="showSection('ch1')" id="nav-ch1"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>极限与连续</a>
+    <a href="#" onclick="showSection('ch2')" id="nav-ch2"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>导数与微分</a>
+    <a href="#" onclick="showSection('ch3')" id="nav-ch3"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>中值定理</a>
+    <a href="#" onclick="showSection('ch4')" id="nav-ch4"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>不定积分</a>
+    <a href="#" onclick="showSection('ch5')" id="nav-ch5"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>定积分与应用</a>
+    <a href="#" onclick="showSection('ch6')" id="nav-ch6"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>多元函数微积分</a>
+    <a href="#" onclick="showSection('ch7')" id="nav-ch7"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></span>微分方程</a>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-title">&#128208; 线性代数</div>
-    <a href="#" onclick="showSection('la1')" id="nav-la1"><span class="icon">&#9670;</span>行列式与矩阵</a>
-    <a href="#" onclick="showSection('la2')" id="nav-la2"><span class="icon">&#9670;</span>向量与方程组</a>
-    <a href="#" onclick="showSection('la3')" id="nav-la3"><span class="icon">&#9670;</span>特征值与二次型</a>
+    <a href="#" onclick="showSection('la1')" id="nav-la1"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 14 8 8 15 2 8"/></svg></span>行列式与矩阵</a>
+    <a href="#" onclick="showSection('la2')" id="nav-la2"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 14 8 8 15 2 8"/></svg></span>向量与方程组</a>
+    <a href="#" onclick="showSection('la3')" id="nav-la3"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 14 8 8 15 2 8"/></svg></span>特征值与二次型</a>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-title">&#128295; 实战工具箱</div>
-    <a href="#" onclick="showSection('methods')" id="nav-methods"><span class="icon">&#128161;</span>解题方法流程图</a>
-    <a href="#" onclick="showSection('exercises')" id="nav-exercises"><span class="icon">&#9998;</span>真题实战</a>
-    <a href="#" onclick="showSection('exambank')" id="nav-exambank"><span class="icon">&#128218;</span>历年真题库</a>
-    <a href="#" onclick="showSection('mistakes')" id="nav-mistakes"><span class="icon">&#9888;</span>易错雷区</a>
-    <a href="#" onclick="showSection('formulas')" id="nav-formulas"><span class="icon">&#128209;</span>公式速查</a>
-    <a href="#" onclick="showSection('progress')" id="nav-progress"><span class="icon">&#9745;</span>复习进度</a>
+    <a href="#" onclick="showSection('methods')" id="nav-methods"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5l1.5-1.5M11 5l1.5-1.5"/></svg></span>解题方法流程图</a>
+    <a href="#" onclick="showSection('exercises')" id="nav-exercises"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 1.5l3 3L5 14H2v-3L11.5 1.5z"/><line x1="9.5" y1="3.5" x2="12.5" y2="6.5"/></svg></span>真题实战</a>
+    <a href="#" onclick="showSection('exambank')" id="nav-exambank"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8v12H4z"/><path d="M4 2L8 5l4-3"/><path d="M4 6h8M4 9h6"/></svg></span>历年真题库</a>
+    <a href="#" onclick="showSection('mistakes')" id="nav-mistakes"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1L1 14h14L8 1z"/><line x1="8" y1="5" x2="8" y2="9"/><circle cx="8" cy="11.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>易错雷区</a>
+    <a href="#" onclick="showSection('formulas')" id="nav-formulas"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="4" y1="4" x2="12" y2="4"/><line x1="4" y1="7" x2="10" y2="7"/><line x1="4" y1="10" x2="8" y2="10"/></svg></span>公式速查</a>
+    <a href="#" onclick="showSection('progress')" id="nav-progress"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="14" height="14" rx="2"/><path d="M5 8l2 2 4-4"/></svg></span>复习进度</a>
   </div>
   <div class="sidebar-section">
     <div class="sidebar-title">模式</div>
-    <a href="#" onclick="setKPMode(false)" class="active" id="nav-mode-slides"><span class="icon">&#127916;</span>知识点</a>
-    <a href="#" onclick="setKPMode(true)" id="nav-mode-kp"><span class="icon">&#128218;</span>结构化卡片</a>
+    <a href="#" onclick="setKPMode(false)" class="active" id="nav-mode-slides"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="14" height="12" rx="2"/><polygon points="7,5 7,11 12,8"/></svg></span>知识点</a>
+    <a href="#" onclick="setKPMode(true)" id="nav-mode-kp"><span class="icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8v12H4z"/><path d="M4 2L8 5l4-3"/><path d="M4 6h8M4 9h6"/></svg></span>结构化卡片</a>
   </div>
 </nav>
 
@@ -458,7 +459,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
   <div class="card">
     <h2>&#128105;&#8205;&#127891; 武忠祥老师教学体系</h2>
     <div class="tip-box info">
-      <span class="tip-icon">&#128161;</span>
+      <span class="tip-icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5l1.5-1.5M11 5l1.5-1.5"/></svg></span>
       <div><strong>简介：</strong>西安交通大学数学教授，23年+考研辅导经验。国家高等数学试题库骨干专家，多次参与考研大纲修订与命题。教学风格"稳健细致、干货密集"。</div>
     </div>
 
@@ -498,7 +499,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== EXAM ===================== -->
 <div class="section" id="sec-exam">
   <div class="card">
-    <h2>&#128202; 分值分布可视化</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="10" width="3" height="4"/><rect x="6.5" y="6" width="3" height="8"/><rect x="11" y="2" width="3" height="12"/></svg> 分值分布可视化</h2>
 
     <!-- Pie-like visual -->
     <div class="pie-container">
@@ -522,21 +523,21 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
     <h2>&#128293; 高频考点热力图</h2>
     <h3>高等数学</h3>
     <div class="bar-chart">
-      <div class="bar-item"><div class="bar-label">积分计算</div><div class="bar-track"><div class="bar-fill red" style="width:100%">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">导数应用</div><div class="bar-track"><div class="bar-fill red" style="width:100%">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">多元函数</div><div class="bar-track"><div class="bar-fill red" style="width:100%">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">微分方程</div><div class="bar-track"><div class="bar-fill red" style="width:95%">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">二重积分</div><div class="bar-track"><div class="bar-fill orange" style="width:85%">&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">中值定理</div><div class="bar-track"><div class="bar-fill orange" style="width:82%">&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">极限计算</div><div class="bar-track"><div class="bar-fill blue" style="width:78%">&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">定积分应用</div><div class="bar-track"><div class="bar-fill green" style="width:65%">&#9733;&#9733;&#9733;</div></div></div>
+      <div class="bar-item"><div class="bar-label">积分计算</div><div class="bar-track"><div class="bar-fill red" style="width:100%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">导数应用</div><div class="bar-track"><div class="bar-fill red" style="width:100%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">多元函数</div><div class="bar-track"><div class="bar-fill red" style="width:100%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">微分方程</div><div class="bar-track"><div class="bar-fill red" style="width:95%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">二重积分</div><div class="bar-track"><div class="bar-fill orange" style="width:85%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">中值定理</div><div class="bar-track"><div class="bar-fill orange" style="width:82%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">极限计算</div><div class="bar-track"><div class="bar-fill blue" style="width:78%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">定积分应用</div><div class="bar-track"><div class="bar-fill green" style="width:65%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
     </div>
     <h3>线性代数</h3>
     <div class="bar-chart">
-      <div class="bar-item"><div class="bar-label">特征值向量</div><div class="bar-track"><div class="bar-fill purple" style="width:100%">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">线性方程组</div><div class="bar-track"><div class="bar-fill purple" style="width:95%">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">矩阵运算</div><div class="bar-track"><div class="bar-fill purple" style="width:80%">&#9733;&#9733;&#9733;&#9733;</div></div></div>
-      <div class="bar-item"><div class="bar-label">二次型</div><div class="bar-track"><div class="bar-fill purple" style="width:78%">&#9733;&#9733;&#9733;&#9733;</div></div></div>
+      <div class="bar-item"><div class="bar-label">特征值向量</div><div class="bar-track"><div class="bar-fill purple" style="width:100%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">线性方程组</div><div class="bar-track"><div class="bar-fill purple" style="width:95%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">矩阵运算</div><div class="bar-track"><div class="bar-fill purple" style="width:80%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
+      <div class="bar-item"><div class="bar-label">二次型</div><div class="bar-track"><div class="bar-fill purple" style="width:78%"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="8 1 10.5 5.5 15.5 6 12 9.5 13 14.5 8 12 3 14.5 4 9.5 0.5 6 5.5 5.5 8 1"/></svg></div></div></div>
     </div>
   </div>
 </div>
@@ -544,7 +545,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== PLAN ===================== -->
 <div class="section" id="sec-plan">
   <div class="card">
-    <h2>&#128197; 全年复习时间线</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="14" height="13" rx="2"/><line x1="1" y1="6" x2="15" y2="6"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg> 全年复习时间线</h2>
     <div class="timeline">
       <div class="tl-item"><div class="tl-title">3-4月 | 基础阶段上</div><div class="tl-desc">高数上册：极限、导数、积分。教材：武忠祥《基础篇》+ 同济七版。每天3-4小时。</div></div>
       <div class="tl-item"><div class="tl-title">5月 | 基础阶段中</div><div class="tl-desc">高数下册：多元函数、重积分、微分方程。配套330题。</div></div>
@@ -557,7 +558,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
   </div>
 
   <div class="card">
-    <h2>&#128218; 推荐搭配方案</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8v12H4z"/><path d="M4 2L8 5l4-3"/><path d="M4 6h8M4 9h6"/></svg> 推荐搭配方案</h2>
     <div class="table-scroll"><table>
       <tr><th>科目</th><th>方案A（稳扎稳打）</th><th>方案B（技巧提升）</th></tr>
       <tr><td><strong>高数</strong></td><td>武忠祥 基础+强化</td><td>张宇 基础30讲+强化18讲</td></tr>
@@ -604,7 +605,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
       $$x - \ln(1+x) \sim \frac{x^2}{2}$$
     </div>
     <div class="tip-box danger">
-      <span class="tip-icon">&#9888;</span>
+      <span class="tip-icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1L1 14h14L8 1z"/><line x1="8" y1="5" x2="8" y2="9"/><circle cx="8" cy="11.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>
       <div><strong>武忠祥的"加减法陷阱"警告：</strong>等价无穷小<strong>只能在乘除法中直接替换</strong>！加减法中替换可能导致精度丢失（一阶项抵消），必须用泰勒展开。</div>
     </div>
   </div>
@@ -647,7 +648,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
       </div>
     </div>
     <div class="tip-box info">
-      <span class="tip-icon">&#128161;</span>
+      <span class="tip-icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5l1.5-1.5M11 5l1.5-1.5"/></svg></span>
       <div><strong>武忠祥归纳的三种必须分左右极限讨论的情况：</strong><br>1. 分段函数的分界点 &nbsp; 2. 含 $e^{1/x}$ 的点 &nbsp; 3. 含 $\arctan(1/x)$ 的点</div>
     </div>
   </div>
@@ -728,7 +729,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
     </div>
 
     <div class="tip-box danger">
-      <span class="tip-icon">&#9888;</span>
+      <span class="tip-icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1L1 14h14L8 1z"/><line x1="8" y1="5" x2="8" y2="9"/><circle cx="8" cy="11.5" r="0.5" fill="currentColor" stroke="none"/></svg></span>
       <div><strong>参数方程二阶导易错：</strong>$\frac{d^2y}{dx^2} \neq \frac{\psi''(t)}{\varphi''(t)}$！正确是 $\frac{d^2y}{dx^2} = \frac{d}{dt}\!\left(\frac{dy}{dx}\right) \Big/ \frac{dx}{dt}$</div>
     </div>
   </div>
@@ -959,7 +960,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
     </div>
 
     <div class="tip-box info">
-      <span class="tip-icon">&#128161;</span>
+      <span class="tip-icon"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5l1.5-1.5M11 5l1.5-1.5"/></svg></span>
       <div><strong>武忠祥：</strong>复合函数求偏导时画"树形图"！分段函数分界处偏导必须用定义求！极坐标二重积分别忘乘 $r$！</div>
     </div>
   </div>
@@ -1089,7 +1090,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== METHODS ===================== -->
 <div class="section" id="sec-methods">
   <div class="card">
-    <h2>&#128161; 武忠祥八大极限求法</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5l1.5-1.5M11 5l1.5-1.5"/></svg> 武忠祥八大极限求法</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;">
       <div class="kc-card c1"><div class="kc-icon">1</div><div class="kc-title">基本极限</div><div class="kc-desc">$\frac{\sin x}{x}$，$(1+\frac{1}{x})^x$</div></div>
       <div class="kc-card c2"><div class="kc-icon">2</div><div class="kc-title">等价无穷小</div><div class="kc-desc">乘除法优先替换</div></div>
@@ -1120,7 +1121,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
   </div>
 
   <div class="card">
-    <h2>&#128161; 大题得分策略</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.5 3.5l1.5 1.5M11 11l1.5 1.5M3.5 12.5l1.5-1.5M11 5l1.5-1.5"/></svg> 大题得分策略</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
       <div style="background:rgba(192,57,43,0.04);border-radius:10px;padding:14px">
         <div style="font-weight:700;color:#c0392b;margin-bottom:6px">证明题结构</div>
@@ -1141,7 +1142,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== EXERCISES ===================== -->
 <div class="section" id="sec-exercises">
   <div class="card">
-    <h2>&#9998; 练习题库（7个专题 &middot; 46道题）</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 1.5l3 3L5 14H2v-3L11.5 1.5z"/><line x1="9.5" y1="3.5" x2="12.5" y2="6.5"/></svg> 练习题库（7个专题 &middot; 46道题）</h2>
     <p>先独立思考再看答案。点击专题切换。</p>
     <div class="tabs" id="exerciseTabs">
       <button class="tab-btn active" onclick="switchTab('ex','t1')">极限(8)</button>
@@ -1271,11 +1272,11 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== EXAM BANK ===================== -->
 <div class="section" id="sec-exambank">
   <div class="card">
-    <h2>&#128218; 历年真题库（1987-2026 · 共771题）</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h8v12H4z"/><path d="M4 2L8 5l4-3"/><path d="M4 6h8M4 9h6"/></svg> 历年真题库（1987-2026 · 共771题）</h2>
     <p style="color:var(--text-secondary);font-size:14px;margin-bottom:16px">选择年份和题型进行筛选，点击"查看解答"展开答案与解析。</p>
 
     <div class="exam-filters">
-      <span class="filter-label">&#128197; 年份：</span>
+      <span class="filter-label"><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="2" width="14" height="13" rx="2"/><line x1="1" y1="6" x2="15" y2="6"/><line x1="5" y1="1" x2="5" y2="4"/><line x1="11" y1="1" x2="11" y2="4"/></svg> 年份：</span>
       <div class="year-scroll" id="yearScroll"></div>
     </div>
     <div class="exam-filters">
@@ -1294,7 +1295,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== MISTAKES ===================== -->
 <div class="section" id="sec-mistakes">
   <div class="card">
-    <h2>&#9888; 武忠祥总结的十大易错雷区</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1L1 14h14L8 1z"/><line x1="8" y1="5" x2="8" y2="9"/><circle cx="8" cy="11.5" r="0.5" fill="currentColor" stroke="none"/></svg> 武忠祥总结的十大易错雷区</h2>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
       <div class="tip-box danger" style="flex-direction:column">
@@ -1344,7 +1345,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== FORMULAS ===================== -->
 <div class="section" id="sec-formulas">
   <div class="card">
-    <h2>&#128209; 公式速查手册</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="1" width="12" height="14" rx="1"/><line x1="4" y1="4" x2="12" y2="4"/><line x1="4" y1="7" x2="10" y2="7"/><line x1="4" y1="10" x2="8" y2="10"/></svg> 公式速查手册</h2>
     <input class="search-box" type="text" id="formulaSearch" placeholder="输入关键词搜索（如：积分、导数、极限...）" oninput="searchFormulas()">
 
     <div class="formula-item"><h3>等价无穷小</h3><div class="formula-box">$$\sin x \sim x, \; \tan x \sim x, \; e^x-1 \sim x, \; \ln(1+x) \sim x, \; 1-\cos x \sim \frac{x^2}{2}$$ $$x-\sin x \sim \frac{x^3}{6}, \; \tan x-x \sim \frac{x^3}{3}, \; x-\ln(1+x) \sim \frac{x^2}{2}$$</div></div>
@@ -1366,7 +1367,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 <!-- ===================== PROGRESS ===================== -->
 <div class="section" id="sec-progress">
   <div class="card">
-    <h2>&#9745; 复习进度追踪</h2>
+    <h2><svg class="icon-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="14" height="14" rx="2"/><path d="M5 8l2 2 4-4"/></svg> 复习进度追踪</h2>
     <p>勾选已完成的章节，进度自动保存到浏览器。</p>
     <div style="text-align:center;margin-bottom:16px">
       <p id="progressText" style="font-size:20px;font-weight:800;color:var(--primary)">进度：0 / 32</p>
