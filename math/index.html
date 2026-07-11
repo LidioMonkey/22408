@@ -1597,7 +1597,10 @@ setTimeout(() => { drawTaylor(); drawRotation(); }, 500);
 
 document.addEventListener('click', function(e) {
   if (window.innerWidth <= 768) {
-    const sb = document.getElementById('sidebar'), tg = document.querySelector('.menu-toggle');
+    const sb = document.getElementById('sidebar'), tg = document.querySelector('.menu-toggle'), ov = document.querySelector('.sidebar-overlay');
+    sb.classList.toggle('open');
+    if (ov) ov.classList.toggle('show');
+    tg.innerHTML = sb.classList.contains('open') ? '&#10005;' : '&#9776;';
     if (!sb.contains(e.target) && !tg.contains(e.target)) sb.classList.remove('open');
   }
 });

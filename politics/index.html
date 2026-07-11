@@ -337,8 +337,9 @@ renderStats();
 
 // Mobile sidebar toggle
 function toggleSidebar(){
-  document.getElementById('side-nav').classList.toggle('open');
-  document.getElementById('sidebar-overlay').classList.toggle('show');
+  const sn=document.getElementById('side-nav'),ov=document.getElementById('sidebar-overlay'),tg=document.getElementById('menu-toggle');
+  sn.classList.toggle('open');ov.classList.toggle('show');
+  tg.innerHTML=sn.classList.contains('open')?'&#10005;':'&#9776;';
 }
 // Close sidebar on nav click (mobile)
 document.querySelectorAll('.nav-item').forEach(el=>{
@@ -346,6 +347,7 @@ document.querySelectorAll('.nav-item').forEach(el=>{
     if(window.innerWidth<=900){
       document.getElementById('side-nav').classList.remove('open');
       document.getElementById('sidebar-overlay').classList.remove('show');
+      document.getElementById('menu-toggle').innerHTML='&#9776;';
     }
   });
 });
