@@ -66,6 +66,43 @@
         .slide-card .lede{font-size:15px;color:#666;line-height:1.6}
         .slide-card .dim{color:#888}
         .slide-card .mono{font-family:"SF Mono",Consolas,monospace}
+        /* ===== KP Cards (structured knowledge points) ===== */
+        .kp-card .kp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+        .kp-tag{font-size:11px;padding:2px 10px;border-radius:10px;background:rgba(192,57,43,0.06);color:var(--primary);font-weight:500}
+        .kp-section{margin:14px 0;padding:14px 16px;border-radius:10px;background:rgba(0,0,0,0.01);border:1px solid rgba(0,0,0,0.04)}
+        .kp-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--primary);font-weight:700;margin-bottom:8px}
+        .kp-definition{border-left:4px solid var(--primary);background:rgba(192,57,43,0.02)}
+        .kp-keypoints ul{padding-left:20px;font-size:14px;line-height:2;color:#444}
+        .kp-keypoints li{margin-bottom:2px}
+        .kp-code{background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.6;font-family:"SF Mono",Consolas,monospace;white-space:pre-wrap}
+        .kp-table{width:100%;border-collapse:collapse;font-size:13px}
+        .kp-table th,.kp-table td{border:1px solid rgba(0,0,0,0.08);padding:8px 12px;text-align:left}
+        .kp-table th{background:rgba(192,57,43,0.04);color:var(--primary);font-weight:600}
+        .kp-tip,.kp-pitfall,.kp-memory,.kp-note{display:flex;align-items:flex-start;gap:8px;font-size:14px;line-height:1.7;padding:12px 16px}
+        .kp-tip{background:rgba(211,84,0,0.04);border:1px solid rgba(211,84,0,0.12);border-radius:10px;color:#555}
+        .kp-pitfall{background:rgba(192,57,43,0.04);border:1px solid rgba(192,57,43,0.12);border-radius:10px;color:#555}
+        .kp-memory{background:rgba(124,58,237,0.04);border:1px solid rgba(124,58,237,0.12);border-radius:10px;color:#555}
+        .kp-note{background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.06);border-radius:10px;color:#888;font-size:13px}
+        .tip-icon{font-size:16px;flex-shrink:0;line-height:1.5}
+        .kp-example{border-left:4px solid #27ae60;background:rgba(39,174,96,0.02)}
+        .kp-example-q{font-size:14px;line-height:1.8;margin-bottom:8px}
+        .kp-example-a{cursor:pointer;font-size:14px}
+        .kp-answer-hidden{color:#27ae60;font-weight:600}
+        .kp-answer-text{display:none}
+        .kp-example-a.show .kp-answer-hidden{display:none}
+        .kp-example-a.show .kp-answer-text{display:inline;color:#27ae60;font-weight:600}
+        .kp-example-s{font-size:13px;color:#666;margin-top:8px;padding:10px;background:rgba(0,0,0,0.02);border-radius:6px;white-space:pre-wrap;font-family:"SF Mono",Consolas,monospace}
+        .kp-formula{text-align:center;font-size:18px;padding:20px;background:rgba(192,57,43,0.02);border-radius:10px}
+        .kp-timeline{padding:10px 0}
+        .tl-step{display:flex;align-items:center;gap:12px;margin:8px 0}
+        .tl-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);flex-shrink:0}
+        .tl-line{width:2px;height:16px;background:rgba(192,57,43,0.15);margin-left:4px}
+        .tl-text{font-size:14px;color:#444}
+        .kp-related{margin-top:20px;padding:14px 16px;background:rgba(0,0,0,0.02);border-radius:10px;border:1px dashed rgba(0,0,0,0.08)}
+        .kp-related-title{font-size:12px;color:#999;margin-bottom:8px}
+        .kp-related-list{display:flex;gap:6px;flex-wrap:wrap}
+        .kp-related-list .pill{font-size:12px;padding:4px 12px;border:1px solid rgba(0,0,0,0.08);border-radius:16px;cursor:pointer;color:var(--text-secondary);transition:.2s}
+        .kp-related-list .pill:hover{background:var(--primary-light);color:var(--primary);border-color:rgba(192,57,43,0.2)}
         .empty{text-align:center;padding:60px 20px;color:#999;font-size:15px}
         @media(max-width:768px){
             .sidebar{transform:translateX(-100%);width:280px}
@@ -99,13 +136,23 @@
         <div class="sidebar-title">章节</div>
         <div id="chapter-list"></div>
     </div>
+    <div class="sidebar-section">
+        <div class="sidebar-title">模式</div>
+        <div class="pill active" id="mode-slides" onclick="setMode('slides')">📽️ 幻灯片</div>
+        <div class="pill" id="mode-kp" onclick="setMode('kp')">📚 知识点</div>
+    </div>
 </div>
 <div id="content">
     <div id="slides"></div>
 </div>
 <script src="review_data.js"></script>
+<script src="../renderer/kp-card.js"></script>
+<script src="../data/408/kp/ds-intro-complexity.js"></script>
+<script src="../data/408/kp/ds-linear-sequence.js"></script>
+<script src="../data/408/kp/ds-linear-linkedlist.js"></script>
 <script>
 let currentSubject = 'data-structure';
+let currentMode = 'slides'; // 'slides' or 'kp'
 
 function toggleSidebar() {
     const sb = document.getElementById('sidebar');
@@ -122,7 +169,7 @@ function setSubject(subject) {
         p.classList.toggle('active', p.dataset.subject === subject);
     });
     renderChapters();
-    renderSlides();
+    renderContent();
     document.getElementById('content').scrollTop = 0;
     if (window.innerWidth <= 768) {
         document.getElementById('sidebar').classList.remove('open');
@@ -130,13 +177,31 @@ function setSubject(subject) {
     }
 }
 
+function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('mode-slides').classList.toggle('active', mode === 'slides');
+    document.getElementById('mode-kp').classList.toggle('active', mode === 'kp');
+    renderChapters();
+    renderContent();
+    document.getElementById('content').scrollTop = 0;
+}
+
 function renderChapters() {
-    const data = REVIEW_DATA[currentSubject];
-    if (!data) return;
     const list = document.getElementById('chapter-list');
-    list.innerHTML = data.slides.map((s, i) =>
-        `<div class="pill" data-index="${i}" onclick="scrollToSlide(${i})">${s.title}</div>`
-    ).join('');
+    if (currentMode === 'slides') {
+        const data = REVIEW_DATA[currentSubject];
+        if (!data) { list.innerHTML = ''; return; }
+        list.innerHTML = data.slides.map((s, i) =>
+            `<div class="pill" data-index="${i}" onclick="scrollToSlide(${i})">${s.title}</div>`
+        ).join('');
+    } else {
+        // KP mode: show chapter groups
+        const kps = getKPsForSubject(currentSubject);
+        const chapters = [...new Set(kps.map(kp => kp.chapter))];
+        list.innerHTML = chapters.map((ch, i) =>
+            `<div class="pill" data-chapter="${ch}" onclick="scrollToKPChapter('${ch}')">${ch}</div>`
+        ).join('');
+    }
 }
 
 function scrollToSlide(index) {
@@ -146,6 +211,22 @@ function scrollToSlide(index) {
         document.querySelectorAll('#chapter-list .pill').forEach(p => {
             p.classList.toggle('active', parseInt(p.dataset.index) === index);
         });
+    }
+}
+
+function scrollToKPChapter(chapter) {
+    const el = document.querySelector(`[data-chapter="${chapter}"]`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // 高亮第一个找到的该章节知识点
+    const kp = document.querySelector(`[data-kp-chapter="${chapter}"]`);
+    if (kp) kp.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderContent() {
+    if (currentMode === 'slides') {
+        renderSlides();
+    } else {
+        renderKPs();
     }
 }
 
@@ -163,6 +244,50 @@ function renderSlides() {
             ${s.content}
         </div>`
     ).join('');
+}
+
+function renderKPs() {
+    const container = document.getElementById('slides');
+    const kps = getKPsForSubject(currentSubject);
+    if (!kps.length) {
+        container.innerHTML = '<div class="empty">暂无知识点数据。在 data/408/kp/ 下添加 .js 文件即可。</div>';
+        return;
+    }
+    container.innerHTML = kps.map(kp =>
+        `<div class="slide-card kp-card" data-kp-chapter="${kp.chapter}" id="kp-${kp.id}">
+            <div class="kicker">${kp.subject} · ${kp.chapter}</div>
+            <h2>${kp.title}</h2>
+            ${kp.tags ? `<div class="kp-tags">${kp.tags.map(t => `<span class="kp-tag">${t}</span>`).join('')}</div>` : ''}
+            ${renderKPSections(kp.sections)}
+            ${kp.related && kp.related.length ? `
+                <div class="kp-related">
+                    <div class="kp-related-title">🔗 关联知识点</div>
+                    <div class="kp-related-list">${kp.related.map(id => `<span class="pill" onclick="scrollToKP('${id}')">${getKPTitle(id) || id}</span>`).join('')}</div>
+                </div>
+            ` : ''}
+        </div>`
+    ).join('');
+    // 重新渲染 MathJax
+    if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise();
+    }
+}
+
+function getKPsForSubject(subject) {
+    // 收集所有该科目的知识点
+    const all = [KP_DS_INTRO_COMPLEXITY, KP_DS_LINEAR_SEQUENCE, KP_DS_LINEAR_LINKEDLIST];
+    return all.filter(kp => kp.subject === subject);
+}
+
+function getKPTitle(id) {
+    const all = [KP_DS_INTRO_COMPLEXITY, KP_DS_LINEAR_SEQUENCE, KP_DS_LINEAR_LINKEDLIST];
+    const found = all.find(kp => kp.id === id);
+    return found ? found.title : null;
+}
+
+function scrollToKP(id) {
+    const el = document.getElementById('kp-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Highlight current chapter on scroll
