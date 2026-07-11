@@ -60,6 +60,7 @@ body {
   width: var(--sidebar-width); background: rgba(255,255,255,0.6);
   border-right: 1px solid var(--border); overflow-y: auto; z-index: 999;
   transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  overscroll-behavior: contain;
 }
 .sidebar-section { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
 .sidebar-title { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); font-weight: 800; padding: 0 18px; margin-bottom: 4px; }
@@ -282,7 +283,7 @@ canvas { border: 1px solid rgba(0,0,0,0.06); border-radius: 10px; background: wh
 ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
 
 /* ========== VISUAL: Knowledge cards grid ========== */
-.kc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 16px 0; }
+.kc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; margin: 16px 0; }
 .kc-card { border-radius: 12px; padding: 16px; text-align: center; border: 1px solid rgba(0,0,0,0.06); transition: 0.3s cubic-bezier(0.16,1,0.3,1); cursor: default; }
 .kc-card:hover { transform: translateY(-2px); border-color: rgba(192,57,43,0.15); }
 .kc-card .kc-icon { font-size: 32px; margin-bottom: 8px; }
