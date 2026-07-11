@@ -5,34 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2027考研</title>
     <style>
+        :root {
+            --notion-bg: #f7f6f3;
+            --notion-text: #37352f;
+            --notion-text-secondary: #9b9a97;
+            --notion-card: #ffffff;
+            --notion-border: rgba(55, 53, 47, 0.09);
+            --notion-hover: rgba(55, 53, 47, 0.06);
+            --notion-accent: #2eaadc;
+            --notion-red: #eb5757;
+            --notion-green: #0f7b6c;
+            --notion-orange: #d9730d;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
-            background: #050505;
-            color: #e8e4de;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--notion-bg);
+            color: var(--notion-text);
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* ===== Animated Background Grid ===== */
+        /* ===== Animated Background Grid (lighter) ===== */
         .bg-grid {
             position: fixed;
             inset: 0;
             background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+                linear-gradient(rgba(55,53,47,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(55,53,47,0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* ===== Spotlight Effect (cursor-following glow) ===== */
+        /* ===== Spotlight Effect (warm, lighter) ===== */
         .spotlight {
             position: fixed;
             width: 600px;
             height: 600px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,200,100,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(45,170,220,0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             transform: translate(-50%, -50%);
@@ -49,7 +61,7 @@
             padding: 48px;
         }
 
-        /* ===== Header with Text Generate Effect ===== */
+        /* ===== Header ===== */
         .header {
             margin-bottom: 60px;
         }
@@ -57,15 +69,15 @@
             font-size: 12px;
             letter-spacing: 6px;
             text-transform: uppercase;
-            color: #8a8477;
+            color: var(--notion-text-secondary);
             margin-bottom: 12px;
         }
         .header-title {
-            font-size: clamp(40px, 7vw, 80px);
-            font-weight: 900;
+            font-size: clamp(40px, 7vw, 72px);
+            font-weight: 800;
             line-height: 1;
-            letter-spacing: -2px;
-            color: #f5f0e8;
+            letter-spacing: -1px;
+            color: var(--notion-text);
         }
         .header-title .char {
             display: inline-block;
@@ -92,38 +104,23 @@
         }
         .cd-num {
             font-size: clamp(48px, 7vw, 80px);
-            font-weight: 900;
+            font-weight: 800;
             line-height: 1;
-            letter-spacing: -3px;
+            letter-spacing: -2px;
             font-variant-numeric: tabular-nums;
-            background: linear-gradient(180deg, #f5f0e8 20%, #8a8477 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-        .cd-num::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 2px;
-            background: rgba(212, 165, 116, 0.3);
-            border-radius: 1px;
+            color: var(--notion-text);
         }
         .cd-label {
             font-size: 11px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #7a756d;
+            color: var(--notion-text-secondary);
             margin-top: 10px;
         }
         .cd-sep {
             font-size: clamp(36px, 5vw, 56px);
             font-weight: 300;
-            color: #6b6560;
+            color: var(--notion-text-secondary);
             line-height: 1;
             padding-bottom: 28px;
             animation: cdBlink 1s step-end infinite;
@@ -133,7 +130,7 @@
         }
         .cd-tag {
             font-size: 13px;
-            color: #8a8477;
+            color: var(--notion-text-secondary);
             padding-bottom: 28px;
             letter-spacing: 1px;
         }
@@ -143,24 +140,25 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto auto;
-            gap: 20px;
+            gap: 16px;
             flex: 1;
         }
 
-        /* ===== Card Base with Moving Border ===== */
+        /* ===== Card Base ===== */
         .card {
             position: relative;
-            border-radius: 24px;
-            padding: 48px 44px;
+            border-radius: 12px;
+            padding: 36px 36px;
             text-decoration: none;
             color: inherit;
             overflow: hidden;
-            background: #0a0a0a;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--notion-card);
+            border: 1px solid var(--notion-border);
+            transition: background 0.2s, box-shadow 0.2s;
             -webkit-tap-highlight-color: transparent;
         }
-        .card:hover { transform: translateY(-4px); }
+        .card:hover { background: rgba(55,53,47,0.02); }
+        .card:active { transform: scale(0.98); }
 
         /* Moving border glow */
         .card::before {
@@ -250,39 +248,38 @@
             font-weight: 700;
             letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
-        .card-math .card-label { color: #c4956a; }
-        .card-eng .card-label { color: #6abe82; }
-        .card-pol .card-label { color: #e74c3c; }
+        .card-math .card-label { color: #d9730d; }
+        .card-eng .card-label { color: #0f7b6c; }
+        .card-pol .card-label { color: #eb5757; }
 
         .card-title {
-            font-size: clamp(32px, 4vw, 52px);
-            font-weight: 900;
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             letter-spacing: -1px;
         }
-        .card-math .card-title { color: #f5ede0; }
-        .card-eng .card-title { color: #e0f5e6; }
-        .card-pol .card-title { color: #f5dede; }
+        .card-title { color: var(--notion-text); }
 
         .card-desc {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #9a9590;
-            margin-bottom: 32px;
-            max-width: 400px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--notion-text-secondary);
+            margin-bottom: 24px;
+            max-width: 100%;
         }
 
         .card-stats {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
         }
         .stat {
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--notion-text-secondary);
             position: relative;
             padding-left: 14px;
         }
@@ -292,65 +289,47 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
         }
-        .card-math .stat { color: #b08860; }
-        .card-math .stat::before { background: #c4956a; }
-        .card-eng .stat { color: #5a9a6a; }
-        .card-eng .stat::before { background: #6abe82; }
-        .card-pol .stat { color: #c0392b; }
-        .card-pol .stat::before { background: #e74c3c; }
+        .card-math .stat::before { background: #d9730d; }
+        .card-eng .stat::before { background: #0f7b6c; }
+        .card-pol .stat::before { background: #eb5757; }
 
         .card-arrow {
             position: absolute;
-            right: 40px;
-            bottom: 40px;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
+            right: 32px;
+            bottom: 32px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: background 0.2s;
+            color: var(--notion-text-secondary);
         }
-        .card-math .card-arrow { background: rgba(196, 149, 106, 0.1); color: #c4956a; }
-        .card-eng .card-arrow { background: rgba(106, 190, 130, 0.1); color: #6abe82; }
-        .card-pol .card-arrow { background: rgba(192, 57, 43, 0.1); color: #e74c3c; }
-        .card:hover .card-arrow { transform: translate(4px, -4px); }
-        .card-math:hover .card-arrow { background: rgba(196, 149, 106, 0.2); }
-        .card-eng:hover .card-arrow { background: rgba(106, 190, 130, 0.2); }
-        .card-pol:hover .card-arrow { background: rgba(192, 57, 43, 0.2); }
-        .card-arrow svg { width: 20px; height: 20px; }
+        .card:hover .card-arrow { background: var(--notion-hover); }
+        .card-arrow svg { width: 18px; height: 18px; }
 
         /* Decorative large character */
         .deco-char {
             position: absolute;
-            font-size: 200px;
+            font-size: 160px;
             font-weight: 900;
-            opacity: 0.03;
+            opacity: 0.025;
             pointer-events: none;
             line-height: 1;
         }
-        .card-math .deco-char { right: 20px; bottom: -20px; color: #c4956a; }
-        .card-eng .deco-char { right: 30px; top: -10px; color: #6abe82; font-size: 140px; }
-        .card-pol .deco-char { left: 20px; bottom: -10px; color: #e74c3c; font-size: 160px; }
+        .card-math .deco-char { right: 20px; bottom: -10px; color: #d9730d; }
+        .card-eng .deco-char { right: 30px; top: -10px; color: #0f7b6c; font-size: 120px; }
+        .card-pol .deco-char { left: 20px; bottom: -10px; color: #eb5757; font-size: 140px; }
 
-        .card-408 { --border-color: rgba(52, 152, 219, 0.6); }
-        .card-408 .glow {
-            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(52,152,219,0.08) 0%, transparent 50%);
-            opacity: 0; transition: opacity 0.6s;
-        }
-        .card-408:hover .glow { opacity: 1; }
-        .card-408 .card-label { color: #3498db; }
-        .card-408 .card-title { color: #ddeeff; }
-        .card-408 .stat { color: #2980b9; }
-        .card-408 .stat::before { background: #3498db; }
-        .card-408 .card-arrow { background: rgba(52, 152, 219, 0.1); color: #3498db; }
-        .card-408:hover .card-arrow { background: rgba(52, 152, 219, 0.2); }
-        .card-408 .deco-char { left: 20px; bottom: -10px; color: #3498db; font-size: 160px; }
+        .card-408 { border-left: 4px solid #2eaadc; }
+        .card-408 .card-label { color: #2eaadc; }
+        .card-408 .stat::before { background: #2eaadc; }
+        .card-408 .deco-char { left: 20px; bottom: -10px; color: #2eaadc; font-size: 140px; }
 
         /* ===== Sparkle Particles ===== */
         .sparkles {
@@ -392,48 +371,47 @@
         }
         .bottom-hint {
             font-size: 12px;
-            color: #7a756d;
+            color: var(--notion-text-secondary);
             letter-spacing: 1px;
         }
         .bottom-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #c4956a;
+            background: var(--notion-text-secondary);
             animation: pulse 2s ease-in-out infinite;
         }
         @keyframes pulse {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.3); }
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
         }
 
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
             .page { padding: 28px 16px; }
             .bento { grid-template-columns: 1fr; }
-            .card-math { grid-row: auto; }
             .card { padding: 28px 24px; }
             .card:active { transform: scale(0.98) !important; }
-            .card-title { font-size: 28px; }
+            .card-title { font-size: 26px; }
             .header { margin-bottom: 24px; }
             .header-title { font-size: 32px; }
-            .deco-char { font-size: 100px; }
+            .deco-char { font-size: 80px; }
             .countdown { gap: 12px; margin-bottom: 32px; }
             .cd-sep { padding-bottom: 20px; }
             .cd-tag { padding-bottom: 20px; font-size: 12px; }
-            .cd-num { font-size: 36px; }
-            .card-desc { font-size: 14px; }
+            .cd-num { font-size: 32px; }
+            .card-desc { font-size: 13px; }
             .card-stats { gap: 12px; }
-            .card-arrow { right: 24px; bottom: 24px; width: 40px; height: 40px; }
+            .card-arrow { right: 20px; bottom: 20px; width: 36px; height: 36px; }
         }
         @media (max-width: 480px) {
             .page { padding: 20px 12px; }
             .card { padding: 22px 18px; }
-            .card-title { font-size: 24px; }
-            .cd-num { font-size: 28px; }
+            .card-title { font-size: 22px; }
+            .cd-num { font-size: 24px; }
             .countdown { gap: 8px; }
-            .bento { gap: 14px; }
-            .card-arrow { right: 16px; bottom: 16px; width: 36px; height: 36px; }
+            .bento { gap: 12px; }
+            .card-arrow { right: 16px; bottom: 16px; width: 32px; height: 32px; }
         }
     </style>
 </head>
@@ -597,10 +575,10 @@
             container.appendChild(s);
         }
     }
-    createSparkles('sparkles-math', '#c4956a');
-    createSparkles('sparkles-eng', '#6abe82');
-    createSparkles('sparkles-pol', '#e74c3c');
-    createSparkles('sparkles-408', '#3498db');
+    createSparkles('sparkles-math', '#d9730d');
+    createSparkles('sparkles-eng', '#0f7b6c');
+    createSparkles('sparkles-pol', '#eb5757');
+    createSparkles('sparkles-408', '#2eaadc');
 
     // ===== 3D Card Tilt Effect =====
     document.querySelectorAll('.card').forEach(card => {
